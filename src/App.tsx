@@ -23,6 +23,13 @@ const AppContainer = styled.div`
 const App = () => {
   const [menu, setMenu] = useState<boolean>(false);
 
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+  useEffect(() => {
+    const updateScreenWidth = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", updateScreenWidth);
+    return () => window.removeEventListener("resize", updateScreenWidth);
+  }, [screenWidth]);
+
   const setAppHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--app-height", `${window.innerHeight}px`);
@@ -35,7 +42,12 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<MainLayout menu={menu} setMenu={setMenu} />}>
+      <Route
+        path="/"
+        element={
+          <MainLayout menu={menu} setMenu={setMenu} screenWidth={screenWidth} />
+        }
+      >
         <Route index element={<Home />} />
         <Route path="destination" element={<Destination />} />
         <Route path="crew" element={<Crew />} />

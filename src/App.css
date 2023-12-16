@@ -13,6 +13,9 @@ body {
   width: 100%;
   height: var(--app-height);
   font-size: 16px;
+  color: white;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
 }
 
 @media (min-width: 600px) {
