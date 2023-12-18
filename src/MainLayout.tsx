@@ -35,7 +35,7 @@ const StyledHr = styled.hr`
 const StyledLogo = styled(Logo)``;
 const StyledHamburger = styled(Hamburger)`
   cursor: pointer;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     display: none;
   }
 `;
@@ -45,7 +45,7 @@ const StyledClose = styled(Close)`
   top: 2rem;
   right: 1.5rem;
   z-index: 3;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     display: none;
   }
 `;

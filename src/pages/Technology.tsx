@@ -9,7 +9,7 @@ const TechnologyContainer = styled.section`
   background-image: url(${BGMobile});
   background-repeat: no-repeat;
   background-size: cover;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     background-image: url(${BGTablet});
   }
   @media (min-width: 1024px) {

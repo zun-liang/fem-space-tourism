@@ -7,10 +7,10 @@ import { SharedSection } from "../assets/styles/SharedStyles";
 
 const HomeContainer = styled(SharedSection)`
   background-image: url(${BGMobile});
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     background-image: url(${BGTablet});
   }
-  @media (min-width: 700px) {
+  @media (min-width: 720px) {
     padding: 4rem 4rem 8rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -27,7 +27,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 700px) {
+  @media (min-width: 720px) {
     text-align: left;
     align-items: flex-start;
   }
@@ -47,10 +47,10 @@ const StyledH2 = styled.h2`
   font-weight: normal;
   letter-spacing: 5px;
   text-transform: uppercase;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     margin-top: 3rem;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 720px) {
     font-size: 1.7rem;
     line-height: 1.5;
     margin-top: 0;
@@ -58,11 +58,11 @@ const StyledH2 = styled.h2`
 `;
 const StyledP = styled.p`
   line-height: 1.5;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     width: 85%;
     font-size: 0.9rem;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 720px) {
     line-height: 2;
   }
 `;
@@ -86,7 +86,7 @@ const Circle = styled.div`
     outline: 65px solid rgba(255, 255, 255, 0.1);
     transition: outline 1s ease-out;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 720px) {
     margin-top: 0;
     justify-self: center;
     & > span {

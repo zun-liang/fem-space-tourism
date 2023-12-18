@@ -12,7 +12,7 @@ const StyledList = styled.ul`
   height: 100%;
   z-index: 2;
   padding: 6rem 2rem;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     position: relative;
     top: 0;
     left: auto;
@@ -42,7 +42,7 @@ const StyledListItem = styled.li`
   letter-spacing: 2px;
   display: flex;
   align-items: flex-end;
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     font-size: 1rem;
     height: 100%;
     align-items: center;
@@ -68,14 +68,14 @@ const StyledLink = styled(NavLink)`
   & > span {
     font-weight: bold;
     margin-right: 10px;
-    @media (min-width: 600px) {
+    @media (min-width: 560px) {
       display: none;
     }
     @media (min-width: 1024px) {
       display: inline;
     }
   }
-  @media (min-width: 600px) {
+  @media (min-width: 560px) {
     width: 100%;
     height: 100%;
   }
