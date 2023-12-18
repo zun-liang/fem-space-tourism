@@ -86,10 +86,24 @@ Users should be able to:
 
 ### Useful resources
 
+#### HTML Related
+
+- [Window: location property](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
+
+#### CSS Related
+
 - [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
 - [clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 - [place-items](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
+
+#### Typescript Related
+
 - [React, passing state setter (useState) to child component with TypeScript](https://stackoverflow.com/questions/72383412/react-passing-state-setter-usestate-to-child-component-with-typescript)
+- [How to write the correct type for useLoaderData()? (Typescript) #9792](https://github.com/remix-run/react-router/discussions/9792)
+
+#### Vite Related
+
+- [Static Asset Handling](https://vitejs.dev/guide/assets)
 
 ## Author
 
