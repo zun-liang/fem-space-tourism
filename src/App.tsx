@@ -1,17 +1,12 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import Home from "./pages/Home";
-import Crew from "./pages/Crew";
-import Technology from "./pages/Technology";
-import Destination from "./pages/Destination";
-import MainLayout from "./MainLayout";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import styled from "styled-components";
+
+import MainLayout from "./MainLayout";
+import Crew from "./pages/Crew";
+import Destination, { loader as destinationLoader } from "./pages/Destination";
+import Home from "./pages/Home";
+import Technology from "./pages/Technology";
 
 import "./App.css";
 
@@ -49,7 +44,7 @@ const App = () => {
         }
       >
         <Route index element={<Home />} />
-        <Route path="destination" element={<Destination />} />
+        <Route path="destination" element={<Destination />} loader={destinationLoader}/>
         <Route path="crew" element={<Crew />} />
         <Route path="technology" element={<Technology />} />
       </Route>
