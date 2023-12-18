@@ -86,8 +86,9 @@ Users should be able to:
 
 ### Useful resources
 
-- [clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 - [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+- [clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
+- [place-items](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
 - [React, passing state setter (useState) to child component with TypeScript](https://stackoverflow.com/questions/72383412/react-passing-state-setter-usestate-to-child-component-with-typescript)
 
 ## Author
