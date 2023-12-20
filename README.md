@@ -82,6 +82,8 @@ Users should be able to:
 
 ### What I learned
 
+- How to use Typescript in React, React Router, Styled-Components and Vite
+
 ### Continued development
 
 ### Useful resources
@@ -89,6 +91,7 @@ Users should be able to:
 #### HTML Related
 
 - [Window: location property](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
+- [7 Alternatives to the <div> HTML Tag](https://medium.com/@zac_heisey/7-alternatives-to-the-div-html-tag-7c888c7b5036)
 
 #### CSS Related
 
@@ -98,6 +101,7 @@ Users should be able to:
 
 #### Typescript Related
 
+- [React Typescript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
 - [React, passing state setter (useState) to child component with TypeScript](https://stackoverflow.com/questions/72383412/react-passing-state-setter-usestate-to-child-component-with-typescript)
 - [How to write the correct type for useLoaderData()? (Typescript) #9792](https://github.com/remix-run/react-router/discussions/9792)
 
