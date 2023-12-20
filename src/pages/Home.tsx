@@ -3,9 +3,9 @@ import styled from "styled-components";
 import BGDesktop from "../assets/home/background-home-desktop.jpg";
 import BGMobile from "../assets/home/background-home-mobile.jpg";
 import BGTablet from "../assets/home/background-home-tablet.jpg";
-import { SharedSection } from "../assets/styles/SharedStyles";
+import { Section } from "../assets/styles/SharedStyles";
 
-const HomeContainer = styled(SharedSection)`
+const HomePage = styled(Section)`
   background-image: url(${BGMobile});
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
@@ -22,7 +22,7 @@ const HomeContainer = styled(SharedSection)`
     background-image: url(${BGDesktop});
   }
 `;
-const TextContainer = styled.div`
+const HomeArticle = styled.article`
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -97,8 +97,8 @@ const Circle = styled.div`
 
 const Home = () => {
   return (
-    <HomeContainer>
-      <TextContainer>
+    <HomePage>
+      <HomeArticle>
         <StyledH2>So, you want to travel to</StyledH2>
         <StyledH1>Space</StyledH1>
         <StyledP>
@@ -107,11 +107,11 @@ const Home = () => {
           back, and relax because we’ll give you a truly out of this world
           experience!
         </StyledP>
-      </TextContainer>
+      </HomeArticle>
       <Circle>
         <span>Explore</span>
       </Circle>
-    </HomeContainer>
+    </HomePage>
   );
 };
 

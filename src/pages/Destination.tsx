@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import styled from "styled-components";
 
 import BGDesktop from "../assets/destination/background-destination-desktop.jpg";
 import BGMobile from "../assets/destination/background-destination-mobile.jpg";
 import BGTablet from "../assets/destination/background-destination-tablet.jpg";
-import { SharedSection } from "../assets/styles/SharedStyles";
-import { useLoaderData } from "react-router-dom";
+import {
+  H2,
+  InputContainer,
+  RadioBtn,
+  Section,
+  Label,
+  H3,
+} from "../assets/styles/SharedStyles";
 
-const DestinationsContainer = styled(SharedSection)`
-  height: auto;
-  min-height: 100vh;
+const DestinationPage = styled(Section)`
   background-image: url(${BGMobile});
-  padding: 6.5rem 2rem 4rem;
-  gap: 2rem;
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
   }
@@ -23,54 +26,8 @@ const DestinationsContainer = styled(SharedSection)`
     background-image: url(${BGDesktop});
   }
 `;
-const StyledH2 = styled.h2`
-  text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1rem;
-  font-weight: normal;
-  letter-spacing: 5px;
-  & > span {
-    color: gray;
-    font-weight: bold;
-  }
-  @media (min-width: 560px) {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-  }
-  @media (min-width: 720px) {
-    font-size: 1.5rem;
-    margin-top: 3.5rem;
-    align-self: flex-start;
-  }
-`;
-const StyledH3 = styled.h3`
-  text-transform: uppercase;
-  font-family: "Bellefair", sans-serif;
-  font-size: 3.3rem;
-  font-weight: normal;
-  letter-spacing: 5px;
-  @media (min-width: 720px) {
-    font-size: 4.5rem;
-  }
-`;
-const StyledList = styled.ul`
-  width: 60%;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
-`;
-const StyledListItem = styled.li`
-  list-style: none;
-  text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: 3px;
-  cursor: pointer;
-  &:hover {
-    text-decoration: 3px underline gray;
-    text-underline-offset: 10px;
-  }
-`;
-const DestinationContainer = styled.section`
+const StyledH2 = styled(H2)``;
+const DestinationArticle = styled.article`
   display: grid;
   place-items: center;
   gap: 2rem;
@@ -82,13 +39,16 @@ const DestinationContainer = styled.section`
   }
   @media (min-width: 720px) {
     place-items: start;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 40% 60%;
     grid-template-rows: 3rem repeat(1fr, 3);
     & > div {
       grid-column: 2 / 3;
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
   }
 `;
 const StyledImg = styled.img`
@@ -108,6 +68,33 @@ const StyledImg = styled.img`
   }
   @media (min-width: 720px) {
     grid-row: 1 / 5;
+    min-width: 13rem;
+  }
+`;
+const ChoiceContainer = styled(InputContainer)`
+  gap: 2rem;
+  border: 1px solid red;
+  @media (min-width: 720px) {
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
+`;
+const StyledRadioBtn = styled(RadioBtn)``;
+const StyledLabel = styled(Label)`
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 3px;
+  text-decoration: ${({ $selected }) =>
+    $selected ? "3px underline white" : "3px underline transparent"};
+  text-underline-offset: 10px;
+  &:hover {
+    text-decoration: 3px underline gray;
+  }
+`;
+const StyledH3 = styled(H3)`
+  font-size: 3.3rem;
+  @media (min-width: 720px) {
+    font-size: 4.5rem;
   }
 `;
 const StyledP = styled.p`
@@ -137,15 +124,16 @@ const StyledItemContent = styled(StyledItem)`
   font-family: "Bellefair", sans-serif;
   font-size: 1.8rem;
   margin-top: 0.5rem;
+  @media (min-width: 720px) {
+    font-size: 1.5rem;
+  }
 `;
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const loader = () => {
   return fetch("/data.json")
     .then((res) => res.json())
-    .then((data) => {
-      return data.destinations;
-    });
+    .then((data) => data.destinations);
 };
 
 interface Destination {
@@ -155,30 +143,68 @@ interface Destination {
   distance: string;
   travel: string;
 }
+
 const Destination = () => {
-  const [destination, setDestination] = useState<string>("moon");
+  const [destinationChoice, setDestinationChoice] = useState<string>("moon");
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setDestinationChoice(event.target.value);
+
   const data = useLoaderData() as Destination[];
   const destinationsArr = data.map((destination: Destination) => {
     const baseUrl = window.location.href.replace("/destination", "/src");
-    const relativePath = destination.images.png.replace("./", "");
-    const imgUrl = new URL(`${baseUrl}/${relativePath}`, import.meta.url).href;
+    const relativePath = destination.images.png.replace("./", "/");
+    const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
     return (
-      <DestinationContainer key={destination.name}>
+      <DestinationArticle key={destination.name}>
         <StyledImg src={imgUrl} alt={destination.name} />
-        <StyledList>
-          <StyledListItem onClick={() => setDestination("moon")}>
+        <ChoiceContainer>
+          <StyledRadioBtn
+            type="radio"
+            id="moon"
+            name="destination"
+            value="moon"
+            onChange={handleChange}
+          />
+          <StyledLabel htmlFor="moon" $selected={destinationChoice === "moon"}>
             Moon
-          </StyledListItem>
-          <StyledListItem onClick={() => setDestination("mars")}>
+          </StyledLabel>
+          <StyledRadioBtn
+            type="radio"
+            id="mars"
+            name="destination"
+            value="mars"
+            onChange={handleChange}
+          />
+          <StyledLabel htmlFor="mars" $selected={destinationChoice === "mars"}>
             Mars
-          </StyledListItem>
-          <StyledListItem onClick={() => setDestination("europa")}>
+          </StyledLabel>
+          <StyledRadioBtn
+            type="radio"
+            id="europa"
+            name="destination"
+            value="europa"
+            onChange={handleChange}
+          />
+          <StyledLabel
+            htmlFor="europa"
+            $selected={destinationChoice === "europa"}
+          >
             Europa
-          </StyledListItem>
-          <StyledListItem onClick={() => setDestination("titan")}>
+          </StyledLabel>
+          <StyledRadioBtn
+            type="radio"
+            id="titan"
+            name="destination"
+            value="titan"
+            onChange={handleChange}
+          />
+          <StyledLabel
+            htmlFor="titan"
+            $selected={destinationChoice === "titan"}
+          >
             Titan
-          </StyledListItem>
-        </StyledList>
+          </StyledLabel>
+        </ChoiceContainer>
         <StyledH3>{destination.name}</StyledH3>
         <StyledP>{destination.description}</StyledP>
         <StyledHr />
@@ -192,23 +218,23 @@ const Destination = () => {
             <StyledItemContent>{destination.travel}</StyledItemContent>
           </div>
         </div>
-      </DestinationContainer>
+      </DestinationArticle>
     );
   });
 
   return (
-    <DestinationsContainer>
+    <DestinationPage>
       <StyledH2>
         <span>01</span> Pick your destination
       </StyledH2>
-      {destination === "moon"
+      {destinationChoice === "moon"
         ? destinationsArr[0]
-        : destination === "mars"
+        : destinationChoice === "mars"
         ? destinationsArr[1]
-        : destination === "europa"
+        : destinationChoice === "europa"
         ? destinationsArr[2]
         : destinationsArr[3]}
-    </DestinationsContainer>
+    </DestinationPage>
   );
 };
 
