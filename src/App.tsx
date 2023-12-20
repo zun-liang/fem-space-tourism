@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import styled from "styled-components";
 
 import MainLayout from "./MainLayout";
-import Crew from "./pages/Crew";
+import Crew, { loader as crewLoader } from "./pages/Crew";
 import Destination, { loader as destinationLoader } from "./pages/Destination";
 import Home from "./pages/Home";
-import Technology from "./pages/Technology";
+import Technology, { loader as technologyLoader } from "./pages/Technology";
 
 import "./App.css";
 
@@ -44,9 +49,17 @@ const App = () => {
         }
       >
         <Route index element={<Home />} />
-        <Route path="destination" element={<Destination />} loader={destinationLoader}/>
-        <Route path="crew" element={<Crew />} />
-        <Route path="technology" element={<Technology />} />
+        <Route
+          path="destination"
+          element={<Destination />}
+          loader={destinationLoader}
+        />
+        <Route path="crew" element={<Crew />} loader={crewLoader} />
+        <Route
+          path="technology"
+          element={<Technology screenWidth={screenWidth} />}
+          loader={technologyLoader}
+        />
       </Route>
     )
   );
