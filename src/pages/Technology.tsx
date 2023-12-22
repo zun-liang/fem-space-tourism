@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 import {
   H2,
-  Section,
-  InputContainer,
-  RadioBtn,
-  Label,
   H3,
+  InputContainer,
+  Label,
+  RadioBtn,
+  Section,
 } from "../assets/styles/SharedStyles";
 import BGDesktop from "../assets/technology/background-technology-desktop.jpg";
 import BGMobile from "../assets/technology/background-technology-mobile.jpg";
@@ -17,12 +17,16 @@ import BGTablet from "../assets/technology/background-technology-tablet.jpg";
 const TechnologyPage = styled(Section)`
   background-image: url(${BGMobile});
   gap: 3rem;
-  padding: 2rem 0;
+  padding: 6.5rem 0 4rem;
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
   }
+  @media (min-width: 720px) {
+    padding: 2rem 0rem 2rem 5rem;
+  }
   @media (min-width: 1024px) {
     background-image: url(${BGDesktop});
+    padding: 2rem 5rem;
   }
 `;
 const StyledH2 = styled(H2)``;
@@ -31,15 +35,27 @@ const TechnologyArticle = styled.article`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
+  @media (min-width: 720px) {
+    display: grid;
+    grid-template-columns: 4rem 3fr 2fr;
+  }
 `;
 const StyledImg = styled.img`
   width: 100%;
   object-fit: contain;
+  @media (min-width: 720px) {
+    grid-column: 3 / 4;
+    grid-row: 1 / -1;
+  }
 `;
 const ChoiceContainer = styled(InputContainer)`
   justify-content: center;
   gap: 1rem;
+  @media (min-width: 720px) {
+    width: 4rem;
+    flex-direction: column;
+  }
 `;
 const StyledRadioBtn = styled(RadioBtn)``;
 const StyledLabel = styled(Label)`
@@ -64,10 +80,24 @@ const StyledLabel = styled(Label)`
     font-size: 1.8rem;
   }
 `;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  @media (min-width: 720px) {
+    align-items: flex-start;
+  }
+`;
 const StyledH3 = styled(H3)`
   font-size: 1.5rem;
   letter-spacing: 0;
-  margin-top: -1.5rem;
+  margin-top: -2.3rem;
+  @media (min-width: 720px) {
+    font-size: 3rem;
+    width: 60%;
+  }
 `;
 const StyledH4 = styled.h4`
   text-transform: uppercase;
@@ -77,9 +107,16 @@ const StyledH4 = styled.h4`
   font-size: 0.9rem;
 `;
 const StyledP = styled.p`
-  margin: 0 2rem;
+  margin: -1rem 2.5rem 0;
   line-height: 1.5;
   text-align: center;
+  font-size: 0.9rem;
+  @media (min-width: 720px) {
+    margin: -1rem 0 0;
+    font-size: 1rem;
+    line-height: 2;
+    text-align: left;
+  }
 `;
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -122,7 +159,7 @@ const Technology = ({ screenWidth }: Props) => {
     return (
       <TechnologyArticle key={technology.name}>
         <StyledImg
-          src={screenWidth < 1024 ? `${landscapeUrl}` : `${portraitUrl}`}
+          src={screenWidth < 720 ? `${landscapeUrl}` : `${portraitUrl}`}
           alt={technology.name}
         />
         <ChoiceContainer>
@@ -160,9 +197,11 @@ const Technology = ({ screenWidth }: Props) => {
             3
           </StyledLabel>
         </ChoiceContainer>
-        <StyledH4>The terminology...</StyledH4>
-        <StyledH3>{technology.name}</StyledH3>
-        <StyledP>{technology.description}</StyledP>
+        <TextContainer>
+          <StyledH4>The terminology...</StyledH4>
+          <StyledH3>{technology.name}</StyledH3>
+          <StyledP>{technology.description}</StyledP>
+        </TextContainer>
       </TechnologyArticle>
     );
   });

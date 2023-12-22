@@ -7,12 +7,13 @@ import BGMobile from "../assets/destination/background-destination-mobile.jpg";
 import BGTablet from "../assets/destination/background-destination-tablet.jpg";
 import {
   H2,
+  H3,
   InputContainer,
+  Label,
   RadioBtn,
   Section,
-  Label,
-  H3,
 } from "../assets/styles/SharedStyles";
+import { LabelProps } from "../interfaces";
 
 const DestinationPage = styled(Section)`
   background-image: url(${BGMobile});
@@ -71,16 +72,18 @@ const StyledImg = styled.img`
     min-width: 13rem;
   }
 `;
-const ChoiceContainer = styled(InputContainer)`
+const ChoiceContainer = styled.div`
   gap: 2rem;
-  border: 1px solid red;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
   @media (min-width: 720px) {
     gap: 1.5rem;
-    justify-content: flex-start;
   }
 `;
 const StyledRadioBtn = styled(RadioBtn)``;
-const StyledLabel = styled(Label)`
+const StyledLabel = styled.label<LabelProps>`
+  width: 100px;
   text-transform: uppercase;
   font-family: "Barlow Condensed", sans-serif;
   letter-spacing: 3px;

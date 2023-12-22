@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import styled from "styled-components";
+
 import { LabelProps } from "../../interfaces";
 
 export const Section = styled.section`
@@ -50,7 +51,8 @@ export const RadioBtn = styled.input`
   display: none;
 `;
 export const Label = styled.label<LabelProps>`
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 `;
