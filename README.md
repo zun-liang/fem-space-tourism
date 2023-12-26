@@ -98,6 +98,9 @@ Users should be able to:
 - [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
 - [clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 - [place-items](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
+- [:where()](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+- [white-space](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)
+- [Character issue with the Bellefair Google font](https://stackoverflow.com/questions/72577560/character-issue-with-the-bellefair-google-font)
 
 #### Typescript Related
 

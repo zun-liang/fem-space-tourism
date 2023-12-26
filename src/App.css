@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -6,6 +8,12 @@
 
 :root {
   --app-height: 100%;
+  --white: 0 0% 100%;
+  --light-color: 231 77% 90%;
+  --dark-color: 230 35% 7%;
+  --font-1: "Barlow", sans-serif;
+  --font-2: "Barlow Condensed", sans-serif;
+  --font-3: "Bellefair", serif;
 }
 
 html,
@@ -13,9 +21,21 @@ body {
   width: 100%;
   height: var(--app-height);
   font-size: 16px;
-  color: white;
-  font-family: "Barlow", sans-serif;
+  color: hsl(var(--white));
+  background-color: hsl(var(--dark-color));
+  font-family: var(--font-1);
   font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media (min-width: 560px) {
@@ -31,7 +51,3 @@ body {
     font-size: 20px;
   }
 }
-
-/* font-family: 'Barlow', sans-serif;
-font-family: 'Barlow Condensed', sans-serif;
-font-family: 'Bellefair', serif; */

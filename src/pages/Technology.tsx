@@ -26,10 +26,9 @@ const TechnologyPage = styled(Section)`
   }
   @media (min-width: 1024px) {
     background-image: url(${BGDesktop});
-    padding: 2rem 5rem;
+    padding: 2rem 10rem;
   }
 `;
-const StyledH2 = styled(H2)``;
 const TechnologyArticle = styled.article`
   display: flex;
   flex-direction: column;
@@ -57,17 +56,19 @@ const ChoiceContainer = styled(InputContainer)`
     flex-direction: column;
   }
 `;
-const StyledRadioBtn = styled(RadioBtn)``;
 const StyledLabel = styled(Label)`
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  border: 1px solid gray;
-  background-color: ${({ $selected }) => ($selected ? "white" : "")};
-  color: ${({ $selected }) => ($selected ? "black" : "white")};
-  font-family: "Bellefair", sans-serif;
+  border: 1px solid hsl(var(--white) / 0.25);
+  background-color: ${({ $selected }) =>
+    $selected ? "hsl(var(--white))" : "hsl(var(--white) / 0)"};
+  color: ${({ $selected }) =>
+    $selected ? "hsl(var(--dark-color))" : "hsl(var(--white))"};
+  font-family: var(--font-3);
+  font-weight: 400;
   &:hover {
-    border: 1px solid white;
+    border: 1px solid hsl(var(--white));
   }
   @media (min-width: 720px) {
     width: 3rem;
@@ -95,22 +96,23 @@ const StyledH3 = styled(H3)`
   letter-spacing: 0;
   margin-top: -2.3rem;
   @media (min-width: 720px) {
-    font-size: 3rem;
-    width: 60%;
+    font-size: 2.8rem;
   }
 `;
 const StyledH4 = styled.h4`
   text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: var(--font-2);
   font-weight: 400;
   letter-spacing: 2px;
   font-size: 0.9rem;
+  color: hsl(var(--light-color));
 `;
 const StyledP = styled.p`
   margin: -1rem 2.5rem 0;
   line-height: 1.5;
   text-align: center;
   font-size: 0.9rem;
+  color: hsl(var(--light-color));
   @media (min-width: 720px) {
     margin: -1rem 0 0;
     font-size: 1rem;
@@ -163,7 +165,7 @@ const Technology = ({ screenWidth }: Props) => {
           alt={technology.name}
         />
         <ChoiceContainer>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="vehicle"
             name="technology"
@@ -173,7 +175,7 @@ const Technology = ({ screenWidth }: Props) => {
           <StyledLabel htmlFor="vehicle" $selected={techChoice === "vehicle"}>
             1
           </StyledLabel>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="spaceport"
             name="technology"
@@ -186,7 +188,7 @@ const Technology = ({ screenWidth }: Props) => {
           >
             2
           </StyledLabel>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="capsule"
             name="technology"
@@ -207,9 +209,9 @@ const Technology = ({ screenWidth }: Props) => {
   });
   return (
     <TechnologyPage>
-      <StyledH2>
+      <H2>
         <span>03</span> Space launch 101
-      </StyledH2>
+      </H2>
       {techChoice === "vehicle"
         ? technologyArr[0]
         : techChoice === "spaceport"

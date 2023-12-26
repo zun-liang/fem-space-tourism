@@ -5,7 +5,14 @@ import styled from "styled-components";
 import BGDesktop from "../assets/crew/background-crew-desktop.jpg";
 import BGMobile from "../assets/crew/background-crew-mobile.jpg";
 import BGTablet from "../assets/crew/background-crew-tablet.jpg";
-import { H2, H3, InputContainer, Label, RadioBtn, Section } from "../assets/styles/SharedStyles";
+import {
+  H2,
+  H3,
+  InputContainer,
+  Label,
+  RadioBtn,
+  Section,
+} from "../assets/styles/SharedStyles";
 import { LabelProps } from "../interfaces";
 
 const CrewPage = styled(Section)`
@@ -92,12 +99,15 @@ const ChoiceContainer = styled(InputContainer)`
     bottom: -4rem;
   }
 `;
-const StyledRadioBtn = styled(RadioBtn)``;
 const StyledLabel = styled(Label)`
   width: 15px;
   height: 15px;
-  background-color: ${({ $selected }) => ($selected ? "white" : "gray")};
+  background-color: ${({ $selected }) =>
+    $selected ? "hsl(var(--white))" : "hsl(var(--white) / 0.25)"};
   border-radius: 50%;
+  &:hover {
+    background-color: hsl(var(--white) / 0.5);
+  }
   @media (min-width: 720px) {
     width: 18px;
     height: 18px;
@@ -119,7 +129,9 @@ const TextContainer = styled.div`
 `;
 const Role = styled.h4`
   text-transform: uppercase;
-  font-family: "Bellefair", sans-serif;
+  font-family: var(--font-3);
+  font-weight: 400;
+  color: hsl(var(--white) / 0.5);
   @media (min-width: 560px) {
     font-size: 1.3rem;
   }
@@ -143,6 +155,7 @@ const StyledP = styled.p`
   line-height: 1.5;
   margin-top: -1rem;
   font-size: 0.9rem;
+  color: hsl(var(--light-color));
   @media (min-width: 560px) {
     height: 5rem;
   }
@@ -185,7 +198,7 @@ const Crew = () => {
           $selected={crewChoice === "specialist"}
         />
         <ChoiceContainer>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="commander"
             name="crew"
@@ -196,7 +209,7 @@ const Crew = () => {
             htmlFor="commander"
             $selected={crewChoice === "commander"}
           />
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="specialist"
             name="crew"
@@ -207,7 +220,7 @@ const Crew = () => {
             htmlFor="specialist"
             $selected={crewChoice === "specialist"}
           />
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="pilot"
             name="crew"
@@ -215,7 +228,7 @@ const Crew = () => {
             onChange={handleChange}
           />
           <StyledLabel htmlFor="pilot" $selected={crewChoice === "pilot"} />
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="engineer"
             name="crew"

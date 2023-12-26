@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 
 const MenuContainer = styled.nav``;
 const StyledList = styled.ul`
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: hsl(var(--white) / 0.05);
   backdrop-filter: blur(20px);
   position: absolute;
   right: 0;
@@ -37,7 +37,7 @@ const StyledList = styled.ul`
 const StyledListItem = styled.li`
   height: 4rem;
   list-style: none;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: var(--font-2);
   font-weight: 400;
   letter-spacing: 2px;
   display: flex;
@@ -57,13 +57,13 @@ const StyledLink = styled(NavLink)`
   cursor: pointer;
   border-bottom: 3px solid transparent;
   &:hover {
-    border-bottom: 3px solid gray;
+    border-bottom: 3px solid hsl(var(--white) / 0.5);
   }
   &:link,
   &:active,
   &:hover,
   &:visited {
-    color: white;
+    color: hsl(var(--white));
   }
   & > span {
     font-weight: bold;
@@ -87,7 +87,7 @@ interface Props {
 
 const Menu = ({ setMenu }: Props) => {
   const activeStyle = {
-    borderBottom: "3px solid white",
+    borderBottom: "3px solid hsl(var(--white))",
   };
   const defaultStyle = {};
   const closeMenu = () => setMenu(false);

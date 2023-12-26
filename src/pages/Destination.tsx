@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import BGDesktop from "../assets/destination/background-destination-desktop.jpg";
 import BGMobile from "../assets/destination/background-destination-mobile.jpg";
@@ -26,7 +26,6 @@ const DestinationPage = styled(Section)`
     background-image: url(${BGDesktop});
   }
 `;
-const StyledH2 = styled(H2)``;
 const DestinationArticle = styled.article`
   display: grid;
   place-items: center;
@@ -42,32 +41,21 @@ const DestinationArticle = styled.article`
     grid-template-columns: 1fr 1fr;
   }
 `;
-const DistanceTimeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  @media (min-width: 720px) {
-    grid-column: 2 / 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+const rotate = keyframes`
+  0% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(180deg);
+  }
+  100% {
+      transform: rotate(360deg);
   }
 `;
 const StyledImg = styled.img`
   width: 65%;
   max-width: 20rem;
-  animation: 180s linear infinite rotate;
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  animation: ${rotate} 180s linear infinite;
   @media (min-width: 720px) {
     grid-row: 1 / 5;
     min-width: 13rem;
@@ -75,23 +63,25 @@ const StyledImg = styled.img`
 `;
 const ChoiceContainer = styled(InputContainer)`
   gap: 2rem;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+  width: 60%;
   @media (min-width: 720px) {
     gap: 1.5rem;
+    width: 100%;
+    justify-content: flex-start;
   }
 `;
-const StyledRadioBtn = styled(RadioBtn)``;
 const StyledLabel = styled(Label)`
   text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: var(--font-2);
   letter-spacing: 3px;
+  color: hsl(var(--light-color));
   text-decoration: ${({ $selected }) =>
-    $selected ? "3px underline white" : "3px underline transparent"};
+    $selected
+      ? "3px underline hsl(var(--white))"
+      : "3px underline transparent"};
   text-underline-offset: 10px;
   &:hover {
-    text-decoration: 3px underline gray;
+    text-decoration: 3px underline hsl(var(--white) / 0.5);
   }
 `;
 const StyledH3 = styled(H3)`
@@ -104,6 +94,7 @@ const StyledP = styled.p`
   line-height: 1.5;
   text-align: center;
   font-size: 0.95rem;
+  color: hsl(var(--light-color));
   @media (min-width: 720px) {
     text-align: left;
     line-height: 2;
@@ -112,21 +103,38 @@ const StyledP = styled.p`
 `;
 const StyledHr = styled.hr`
   width: 100%;
-  border: 0.1px solid gray;
+  border: 0.1px solid hsl(var(--white) / 0.1);
   margin: 1rem 0;
+  @media (min-width: 720px) {
+    width: 85%;
+  }
+`;
+const DistanceTimeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  @media (min-width: 720px) {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 const StyledItem = styled.p`
   text-transform: uppercase;
   font-size: 0.9rem;
   text-align: center;
+  color: hsl(var(--light-color));
   @media (min-width: 720px) {
     text-align: left;
   }
 `;
 const StyledItemContent = styled(StyledItem)`
-  font-family: "Bellefair", sans-serif;
+  font-family: var(--font-3);
+  font-weight: 400;
   font-size: 1.8rem;
   margin-top: 0.5rem;
+  color: hsl(var(--white));
   @media (min-width: 720px) {
     font-size: 1.5rem;
   }
@@ -161,7 +169,7 @@ const Destination = () => {
       <DestinationArticle key={destination.name}>
         <StyledImg src={imgUrl} alt={destination.name} />
         <ChoiceContainer>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="moon"
             name="destination"
@@ -171,7 +179,7 @@ const Destination = () => {
           <StyledLabel htmlFor="moon" $selected={destinationChoice === "moon"}>
             Moon
           </StyledLabel>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="mars"
             name="destination"
@@ -181,7 +189,7 @@ const Destination = () => {
           <StyledLabel htmlFor="mars" $selected={destinationChoice === "mars"}>
             Mars
           </StyledLabel>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="europa"
             name="destination"
@@ -194,7 +202,7 @@ const Destination = () => {
           >
             Europa
           </StyledLabel>
-          <StyledRadioBtn
+          <RadioBtn
             type="radio"
             id="titan"
             name="destination"
@@ -227,9 +235,9 @@ const Destination = () => {
 
   return (
     <DestinationPage>
-      <StyledH2>
+      <H2>
         <span>01</span> Pick your destination
-      </StyledH2>
+      </H2>
       {destinationChoice === "moon"
         ? destinationsArr[0]
         : destinationChoice === "mars"

@@ -18,12 +18,12 @@ export const Section = styled.section`
 `;
 export const H2 = styled.h2`
   text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: var(--font-2);
   font-size: 1rem;
   font-weight: normal;
   letter-spacing: 5px;
   & > span {
-    color: gray;
+    color: hsl(var(--white) / 0.25);
     font-weight: bold;
   }
   @media (min-width: 560px) {
@@ -38,8 +38,8 @@ export const H2 = styled.h2`
 `;
 export const H3 = styled.h3`
   text-transform: uppercase;
-  font-family: "Bellefair", sans-serif;
-  font-weight: normal;
+  font-family: var(--font-3);
+  font-weight: 400;
   letter-spacing: 5px;
 `;
 export const InputContainer = styled.div`
@@ -55,4 +55,15 @@ export const Label = styled.label<LabelProps>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+`;
+export const ScreenReader = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect() (0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 `;
