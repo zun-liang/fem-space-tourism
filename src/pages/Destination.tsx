@@ -5,7 +5,14 @@ import styled from "styled-components";
 import BGDesktop from "../assets/destination/background-destination-desktop.jpg";
 import BGMobile from "../assets/destination/background-destination-mobile.jpg";
 import BGTablet from "../assets/destination/background-destination-tablet.jpg";
-import { H2, H3, InputContainer, Label, RadioBtn, Section } from "../assets/styles/SharedStyles";
+import {
+  H2,
+  H3,
+  InputContainer,
+  Label,
+  RadioBtn,
+  Section,
+} from "../assets/styles/SharedStyles";
 
 const DestinationPage = styled(Section)`
   background-image: url(${BGMobile});
@@ -24,23 +31,25 @@ const DestinationArticle = styled.article`
   display: grid;
   place-items: center;
   gap: 2rem;
-  & > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
   @media (min-width: 720px) {
     place-items: start;
     grid-template-columns: 40% 60%;
     grid-template-rows: 3rem repeat(1fr, 3);
     & > div {
-      grid-column: 2 / 3;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
     }
   }
   @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+const DistanceTimeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  @media (min-width: 720px) {
+    grid-column: 2 / 3;
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -202,7 +211,7 @@ const Destination = () => {
         <StyledH3>{destination.name}</StyledH3>
         <StyledP>{destination.description}</StyledP>
         <StyledHr />
-        <div>
+        <DistanceTimeContainer>
           <div>
             <StyledItem>Avg. distance</StyledItem>
             <StyledItemContent>{destination.distance}</StyledItemContent>
@@ -211,7 +220,7 @@ const Destination = () => {
             <StyledItem>Est. travel time</StyledItem>
             <StyledItemContent>{destination.travel}</StyledItemContent>
           </div>
-        </div>
+        </DistanceTimeContainer>
       </DestinationArticle>
     );
   });
