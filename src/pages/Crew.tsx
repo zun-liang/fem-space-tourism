@@ -6,6 +6,7 @@ import BGDesktop from "../assets/crew/background-crew-desktop.jpg";
 import BGMobile from "../assets/crew/background-crew-mobile.jpg";
 import BGTablet from "../assets/crew/background-crew-tablet.jpg";
 import { H2, H3, InputContainer, Label, RadioBtn, Section } from "../assets/styles/SharedStyles";
+import { LabelProps } from "../interfaces";
 
 const CrewPage = styled(Section)`
   height: auto;
@@ -17,11 +18,13 @@ const CrewPage = styled(Section)`
     background-image: url(${BGTablet});
   }
   @media (min-width: 720px) {
-    padding: 2rem 3rem 2rem;
-    gap: 0;
+    padding: 6.5rem 2rem 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
   @media (min-width: 1024px) {
     background-image: url(${BGDesktop});
+    padding: 6.5rem 10rem 15rem;
   }
 `;
 const StyledH2 = styled(H2)`
@@ -32,7 +35,7 @@ const StyledH2 = styled(H2)`
     font-size: 1.5rem;
   }
 `;
-const CrewArticle = styled.article`
+const CrewArticle = styled.article<LabelProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,21 +46,35 @@ const CrewArticle = styled.article`
     gap: 2rem;
   }
   @media (min-width: 720px) {
-    flex-direction: row-reverse;
-    margin-bottom: 2.5rem;
-    border: 1px solid red;
+    align-items: flex-start;
+    width: ${({ $selected }) => ($selected ? "70%" : "50%")};
+    height: 320px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 40vw;
   }
 `;
-const StyledImg = styled.img`
+const StyledImg = styled.img<LabelProps>`
   width: 280px;
   height: 380px;
   object-fit: contain;
+  object-position: right bottom;
   @media (min-width: 560px) {
     width: 320px;
     height: 435px;
   }
   @media (min-width: 720px) {
-    border: 1px solid red;
+    width: 40vw;
+    height: auto;
+    max-width: 50vw;
+    position: absolute;
+    bottom: 3rem;
+    right: 2rem;
+  }
+  @media (min-width: 1024px) {
+    width: ${({ $selected }) => ($selected ? "30vw" : "35vw")};
+    bottom: -7rem;
+    right: ${({ $selected }) => ($selected ? "6rem" : "3rem")};
   }
 `;
 const ChoiceContainer = styled(InputContainer)`
@@ -69,6 +86,10 @@ const ChoiceContainer = styled(InputContainer)`
     left: 3rem;
     justify-content: flex-start;
     width: auto;
+  }
+  @media (min-width: 1024px) {
+    left: 10rem;
+    bottom: -4rem;
   }
 `;
 const StyledRadioBtn = styled(RadioBtn)``;
@@ -157,8 +178,12 @@ const Crew = () => {
     const relativePath = crew.images.png.replace("./", "/");
     const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
     return (
-      <CrewArticle key={crew.name}>
-        <StyledImg src={imgUrl} alt={crew.name} />
+      <CrewArticle key={crew.name} $selected={crewChoice === "specialist"}>
+        <StyledImg
+          src={imgUrl}
+          alt={crew.name}
+          $selected={crewChoice === "specialist"}
+        />
         <ChoiceContainer>
           <StyledRadioBtn
             type="radio"
