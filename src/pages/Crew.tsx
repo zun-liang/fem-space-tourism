@@ -42,7 +42,7 @@ const StyledH2 = styled(H2)`
     font-size: 1.5rem;
   }
 `;
-const CrewArticle = styled.article<LabelProps>`
+const CrewArticle = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,11 +54,8 @@ const CrewArticle = styled.article<LabelProps>`
   }
   @media (min-width: 720px) {
     align-items: flex-start;
-    width: ${({ $selected }) => ($selected ? "70%" : "50%")};
+    width: 60%;
     height: 320px;
-  }
-  @media (min-width: 1024px) {
-    max-width: 40vw;
   }
 `;
 const StyledImg = styled.img<LabelProps>`
@@ -75,7 +72,7 @@ const StyledImg = styled.img<LabelProps>`
     height: auto;
     max-width: 50vw;
     position: absolute;
-    bottom: 3rem;
+    bottom: 0rem;
     right: 2rem;
   }
   @media (min-width: 1024px) {
@@ -149,6 +146,9 @@ const StyledH3 = styled(H3)`
   @media (min-width: 720px) {
     font-size: 3rem;
   }
+  @media (min-width: 1024px) {
+    font-size: 2.6rem;
+  }
 `;
 const StyledP = styled.p`
   text-align: center;
@@ -191,7 +191,7 @@ const Crew = () => {
     const relativePath = crew.images.png.replace("./", "/");
     const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
     return (
-      <CrewArticle key={crew.name} $selected={crewChoice === "specialist"}>
+      <CrewArticle key={crew.name}>
         <StyledImg
           src={imgUrl}
           alt={crew.name}

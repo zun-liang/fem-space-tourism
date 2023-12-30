@@ -26,7 +26,7 @@ const TechnologyPage = styled(Section)`
   }
   @media (min-width: 1024px) {
     background-image: url(${BGDesktop});
-    padding: 2rem 10rem;
+    padding: 2rem 6rem 3rem 10rem;
   }
 `;
 const TechnologyArticle = styled.article`
@@ -39,6 +39,10 @@ const TechnologyArticle = styled.article`
     display: grid;
     grid-template-columns: 4rem 3fr 2fr;
   }
+  @media (min-width: 1024px) {
+    grid-template-columns: 4rem 4fr 5fr;
+    gap: 1rem;
+  }
 `;
 const StyledImg = styled.img`
   width: 100%;
@@ -46,6 +50,8 @@ const StyledImg = styled.img`
   @media (min-width: 720px) {
     grid-column: 3 / 4;
     grid-row: 1 / -1;
+  }
+  @media (min-width: 1024px) {
   }
 `;
 const ChoiceContainer = styled(InputContainer)`
@@ -76,8 +82,8 @@ const StyledLabel = styled(Label)`
     font-size: 1.5rem;
   }
   @media (min-width: 1024px) {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     font-size: 1.8rem;
   }
 `;
@@ -118,6 +124,9 @@ const StyledP = styled.p`
     font-size: 1rem;
     line-height: 2;
     text-align: left;
+  }
+  @media (min-width: 1024px) {
+    font-size: 0.95rem;
   }
 `;
 

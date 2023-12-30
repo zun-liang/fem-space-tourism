@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import { Outlet } from "react-router-dom";
-import Logo from "./assets/shared/logo.svg?react";
-import Hamburger from "./assets/shared/icon-hamburger.svg?react";
 import Close from "./assets/shared/icon-close.svg?react";
+import Hamburger from "./assets/shared/icon-hamburger.svg?react";
+import Logo from "./assets/shared/logo.svg?react";
 import { Dispatch, SetStateAction } from "react";
+import { Outlet } from "react-router-dom";
+import styled from "styled-components";
+
 import Menu from "./components/Menu";
 
 const MainContainer = styled.div`
@@ -21,11 +22,12 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   @media (min-width: 1024px) {
-    height: 150px;
+    height: auto;
+    padding: 1.7rem 2.5rem;
   }
 `;
 const StyledHr = styled.hr`
-  width: 35%;
+  width: 45%;
   border: 0.1px solid hsl(var(--white) / 0.25);
   position: relative;
   left: 5rem;

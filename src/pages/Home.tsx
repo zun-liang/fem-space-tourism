@@ -20,6 +20,7 @@ const HomePage = styled(Section)`
   }
   @media (min-width: 1024px) {
     background-image: url(${BGDesktop});
+    padding: 4rem 6rem 8rem;
   }
 `;
 const HomeArticle = styled.article`
@@ -39,7 +40,7 @@ const StyledH1 = styled.h1`
   font-size: 4.8rem;
   letter-spacing: 4px;
   @media (min-width: 1024px) {
-    font-size: 5rem;
+    font-size: 6.5rem;
   }
 `;
 const StyledH2 = styled.h2`
@@ -53,13 +54,14 @@ const StyledH2 = styled.h2`
     margin-top: 3rem;
   }
   @media (min-width: 720px) {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     line-height: 1.5;
     margin-top: 0;
   }
 `;
 const StyledP = styled.p`
   line-height: 1.5;
+  color: hsl(var(--light-color));
   @media (min-width: 560px) {
     width: 85%;
     font-size: 0.9rem;

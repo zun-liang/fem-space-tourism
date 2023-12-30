@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 const MenuContainer = styled.nav``;
 const StyledList = styled.ul`
@@ -30,8 +30,10 @@ const StyledList = styled.ul`
     gap: 2rem;
   }
   @media (min-width: 1024px) {
-    padding: 0 8rem;
-    height: 100px;
+    padding: 0 5rem;
+    height: 95px;
+    gap: 3rem;
+    right: -2.5rem;
   }
 `;
 const StyledListItem = styled.li`
