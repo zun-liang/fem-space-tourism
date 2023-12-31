@@ -5,33 +5,24 @@ import styled from "styled-components";
 import BGDesktop from "../assets/crew/background-crew-desktop.jpg";
 import BGMobile from "../assets/crew/background-crew-mobile.jpg";
 import BGTablet from "../assets/crew/background-crew-tablet.jpg";
-import {
-  H2,
-  H3,
-  InputContainer,
-  Label,
-  RadioBtn,
-  Section,
-} from "../assets/styles/SharedStyles";
-import { LabelProps } from "../interfaces";
+import { Article, Container, H2, H3, H4, InputContainer, Label, P, RadioBtn, Section } from "../assets/styles/SharedStyles";
+import { LabelProps } from "../interfaces/interfaces";
 
 const CrewPage = styled(Section)`
-  height: auto;
-  min-height: 100vh;
   background-image: url(${BGMobile});
-  gap: 3rem;
   @media (min-width: 560px) {
     padding: 6.5rem 1.5rem 1rem;
     background-image: url(${BGTablet});
+    gap: 3rem;
   }
   @media (min-width: 720px) {
+    background-image: url(${BGDesktop});
     padding: 6.5rem 2rem 1rem;
     justify-content: flex-start;
     align-items: flex-start;
   }
   @media (min-width: 1024px) {
-    background-image: url(${BGDesktop});
-    padding: 6.5rem 10rem 15rem;
+    padding: 6rem 15%;
   }
 `;
 const StyledH2 = styled(H2)`
@@ -42,15 +33,10 @@ const StyledH2 = styled(H2)`
     font-size: 1.5rem;
   }
 `;
-const CrewArticle = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+const CrewArticle = styled(Article)`
+  gap: 2rem;
   @media (min-width: 560px) {
     flex-direction: column-reverse;
-    gap: 2rem;
   }
   @media (min-width: 720px) {
     align-items: flex-start;
@@ -77,7 +63,7 @@ const StyledImg = styled.img<LabelProps>`
   }
   @media (min-width: 1024px) {
     width: ${({ $selected }) => ($selected ? "30vw" : "35vw")};
-    bottom: -7rem;
+    bottom: -3rem;
     right: ${({ $selected }) => ($selected ? "6rem" : "3rem")};
   }
 `;
@@ -92,8 +78,8 @@ const ChoiceContainer = styled(InputContainer)`
     width: auto;
   }
   @media (min-width: 1024px) {
-    left: 10rem;
-    bottom: -4rem;
+    left: 15%;
+    bottom: 4rem;
   }
 `;
 const StyledLabel = styled(Label)`
@@ -110,12 +96,8 @@ const StyledLabel = styled(Label)`
     height: 18px;
   }
 `;
-const TextContainer = styled.div`
+const TextContainer = styled(Container)`
   margin-top: -1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 3rem;
   @media (min-width: 560px) {
     width: 90%;
@@ -124,10 +106,8 @@ const TextContainer = styled.div`
     align-items: flex-start;
   }
 `;
-const Role = styled.h4`
-  text-transform: uppercase;
+const Role = styled(H4)`
   font-family: var(--font-3);
-  font-weight: 400;
   color: hsl(var(--white) / 0.5);
   @media (min-width: 560px) {
     font-size: 1.3rem;
@@ -150,27 +130,22 @@ const StyledH3 = styled(H3)`
     font-size: 2.6rem;
   }
 `;
-const StyledP = styled.p`
-  text-align: center;
-  line-height: 1.5;
+const StyledP = styled(P)`
   margin-top: -1rem;
   font-size: 0.9rem;
-  color: hsl(var(--light-color));
   @media (min-width: 560px) {
-    height: 5rem;
+    max-width: 500px;
   }
   @media (min-width: 720px) {
-    text-align: left;
-    line-height: 2;
     font-size: 1rem;
   }
 `;
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const loader = () => {
-  return fetch("/data.json")
-    .then((res) => res.json())
-    .then((data) => data.crew);
+export const loader = async () => {
+  const res = await fetch("/data.json");
+  const data = await res.json();
+  return data.crew;
 };
 
 interface Crew {
@@ -251,7 +226,7 @@ const Crew = () => {
   return (
     <CrewPage>
       <StyledH2>
-        <span>02 </span>Meet your crew
+        <strong>02 </strong>Meet your crew
       </StyledH2>
       {crewChoice === "commander"
         ? crewArr[0]

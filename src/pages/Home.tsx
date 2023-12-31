@@ -1,33 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import BGDesktop from "../assets/home/background-home-desktop.jpg";
 import BGMobile from "../assets/home/background-home-mobile.jpg";
 import BGTablet from "../assets/home/background-home-tablet.jpg";
-import { Section } from "../assets/styles/SharedStyles";
+import { Article, H2, P, Section } from "../assets/styles/SharedStyles";
 
 const HomePage = styled(Section)`
+  height: var(--app-height);
+  min-height: auto;
+  padding: 0 2rem;
   background-image: url(${BGMobile});
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
   }
   @media (min-width: 720px) {
-    padding: 4rem 4rem 8rem;
+    background-image: url(${BGDesktop});
+    padding: 4rem 4rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: end;
+    justify-items: center;
+    align-items: center;
     column-gap: 1rem;
   }
   @media (min-width: 1024px) {
-    background-image: url(${BGDesktop});
-    padding: 4rem 6rem 8rem;
+    padding: 4rem 15% 0;
   }
 `;
-const HomeArticle = styled.article`
+const HomeArticle = styled(Article)`
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   @media (min-width: 720px) {
     text-align: left;
     align-items: flex-start;
@@ -43,15 +44,11 @@ const StyledH1 = styled.h1`
     font-size: 6.5rem;
   }
 `;
-const StyledH2 = styled.h2`
-  font-family: var(--font-2);
-  font-size: 1rem;
-  font-weight: normal;
-  letter-spacing: 5px;
-  text-transform: uppercase;
+const StyledH2 = styled(H2)`
   color: hsl(var(--light-color));
   @media (min-width: 560px) {
     margin-top: 3rem;
+    font-size: 1rem;
   }
   @media (min-width: 720px) {
     font-size: 1.4rem;
@@ -59,27 +56,34 @@ const StyledH2 = styled.h2`
     margin-top: 0;
   }
 `;
-const StyledP = styled.p`
-  line-height: 1.5;
-  color: hsl(var(--light-color));
+const StyledP = styled(P)`
+  max-width: 450px;
   @media (min-width: 560px) {
     width: 85%;
+    max-width: 540px;
     font-size: 0.9rem;
   }
   @media (min-width: 720px) {
-    line-height: 2;
+    width: 100%;
+    max-width: auto;
+    font-size: 1rem;
   }
 `;
 const Circle = styled.div`
-  background-color: hsl(var(--white));
-  border-radius: 50%;
   width: 260px;
   height: 260px;
+  margin-top: 5rem;
+  background-color: hsl(var(--white));
+  border-radius: 50%;
+  cursor: pointer;
   display: grid;
   place-items: center;
-  margin-top: 5rem;
   outline: 0px solid transparent;
   transition: outline 1s ease-in;
+  &:hover {
+    outline: 65px solid hsl(var(--white) / 0.1);
+    transition: outline 1s ease-out;
+  }
   & > span {
     color: hsl(var(--dark-color));
     text-transform: uppercase;
@@ -87,12 +91,8 @@ const Circle = styled.div`
     font-weight: 400;
     font-size: 2rem;
   }
-  &:hover {
-    outline: 65px solid hsl(var(--white) / 0.1);
-    transition: outline 1s ease-out;
-  }
   @media (min-width: 720px) {
-    margin-top: 0;
+    margin-top: 3rem;
     justify-self: center;
     & > span {
       font-size: 1.8rem;
@@ -101,6 +101,8 @@ const Circle = styled.div`
 `;
 
 const Home = () => {
+  const navigate = useNavigate();
+  const goExplore = () => navigate("destination");
   return (
     <HomePage>
       <HomeArticle>
@@ -113,7 +115,7 @@ const Home = () => {
           experience!
         </StyledP>
       </HomeArticle>
-      <Circle>
+      <Circle onClick={goExplore}>
         <span>Explore</span>
       </Circle>
     </HomePage>

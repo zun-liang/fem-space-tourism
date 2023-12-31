@@ -6,10 +6,13 @@ import BGDesktop from "../assets/destination/background-destination-desktop.jpg"
 import BGMobile from "../assets/destination/background-destination-mobile.jpg";
 import BGTablet from "../assets/destination/background-destination-tablet.jpg";
 import {
+  Article,
+  Container,
   H2,
   H3,
   InputContainer,
   Label,
+  P,
   RadioBtn,
   Section,
 } from "../assets/styles/SharedStyles";
@@ -21,24 +24,25 @@ const DestinationPage = styled(Section)`
   }
   @media (min-width: 720px) {
     padding: 6.5rem 4rem 4rem;
-  }
-  @media (min-width: 1024px) {
     background-image: url(${BGDesktop});
   }
+  @media (min-width: 1024px) {
+    padding: 0 15%;
+  }
 `;
-const DestinationArticle = styled.article`
-  display: grid;
-  place-items: center;
+const DestinationArticle = styled(Article)`
   gap: 2rem;
   @media (min-width: 720px) {
+    display: grid;
     place-items: start;
     grid-template-columns: 40% 60%;
     grid-template-rows: 3rem repeat(1fr, 3);
-    & > div {
-    }
+    row-gap: 1rem;
+    column-gap: 3rem;
   }
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+    row-gap: 0;
   }
 `;
 const rotate = keyframes`
@@ -58,28 +62,30 @@ const StyledImg = styled.img`
   animation: ${rotate} 180s linear infinite;
   @media (min-width: 720px) {
     grid-row: 1 / 5;
+    width: 100%;
+    max-width: auto;
     min-width: 13rem;
   }
 `;
 const ChoiceContainer = styled(InputContainer)`
-  gap: 2rem;
   width: 60%;
+  gap: 2rem;
   @media (min-width: 720px) {
-    gap: 1.5rem;
     width: 100%;
     justify-content: flex-start;
+    gap: 1.5rem;
   }
 `;
 const StyledLabel = styled(Label)`
   text-transform: uppercase;
-  font-family: var(--font-2);
-  letter-spacing: 3px;
-  color: hsl(var(--light-color));
   text-decoration: ${({ $selected }) =>
     $selected
       ? "3px underline hsl(var(--white))"
       : "3px underline transparent"};
   text-underline-offset: 10px;
+  letter-spacing: 3px;
+  font-family: var(--font-2);
+  color: hsl(var(--light-color));
   &:hover {
     text-decoration: 3px underline hsl(var(--white) / 0.5);
   }
@@ -90,29 +96,24 @@ const StyledH3 = styled(H3)`
     font-size: 4.5rem;
   }
 `;
-const StyledP = styled.p`
-  line-height: 1.5;
-  text-align: center;
+const StyledP = styled(P)`
+  width: 80%;
   font-size: 0.95rem;
-  color: hsl(var(--light-color));
   @media (min-width: 720px) {
-    text-align: left;
-    line-height: 2;
     width: 85%;
+  }
+  @media (min-width: 1024px) {
+    width: 100%;
   }
 `;
 const StyledHr = styled.hr`
   width: 100%;
   border: 0.1px solid hsl(var(--white) / 0.1);
-  margin: 1rem 0;
   @media (min-width: 720px) {
     width: 85%;
   }
 `;
-const DistanceTimeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const DistanceTimeContainer = styled(Container)`
   gap: 2rem;
   @media (min-width: 720px) {
     grid-column: 2 / 3;
@@ -120,14 +121,9 @@ const DistanceTimeContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 `;
-const StyledItem = styled.p`
+const StyledItem = styled(P)`
   text-transform: uppercase;
   font-size: 0.9rem;
-  text-align: center;
-  color: hsl(var(--light-color));
-  @media (min-width: 720px) {
-    text-align: left;
-  }
 `;
 const StyledItemContent = styled(StyledItem)`
   font-family: var(--font-3);
@@ -141,10 +137,10 @@ const StyledItemContent = styled(StyledItem)`
 `;
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const loader = () => {
-  return fetch("/data.json")
-    .then((res) => res.json())
-    .then((data) => data.destinations);
+export const loader = async () => {
+  const res = await fetch("/data.json");
+  const data = await res.json();
+  return data.destinations;
 };
 
 interface Destination {
@@ -236,7 +232,7 @@ const Destination = () => {
   return (
     <DestinationPage>
       <H2>
-        <span>01</span> Pick your destination
+        <strong>01</strong> Pick your destination
       </H2>
       {destinationChoice === "moon"
         ? destinationsArr[0]
