@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 
-import MainLayout from "./MainLayout";
+import MainLayout from "./layouts/MainLayout";
 import Crew, { loader as crewLoader } from "./pages/Crew";
 import Destination, { loader as destinationLoader } from "./pages/Destination";
 import Home from "./pages/Home";
@@ -69,4 +69,5 @@ const App = () => {
     </AppContainer>
   );
 };
+
 export default App;
