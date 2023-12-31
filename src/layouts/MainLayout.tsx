@@ -20,6 +20,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow-x: hidden;
+  @media (min-width: 560px) {
+    padding: 0 1.5rem;
+  }
   @media (min-width: 720px) {
     padding: 1.5rem 2.5rem;
   }
@@ -56,11 +60,11 @@ const MainLayout = ({ menu, setMenu, screenWidth }: Props) => {
       <Header>
         <StyledLogo />
         {screenWidth >= 720 && <StyledHr />}
-        {menu && screenWidth < 600 && <StyledClose onClick={toggleMenu} />}
-        {!menu && screenWidth < 600 && <StyledHamburger onClick={toggleMenu} />}
-        {screenWidth >= 600 && <Menu setMenu={setMenu} />}
+        {menu && screenWidth < 560 && <StyledClose onClick={toggleMenu} />}
+        {!menu && screenWidth < 560 && <StyledHamburger onClick={toggleMenu} />}
+        {screenWidth >= 560 && <Menu setMenu={setMenu} />}
       </Header>
-      {menu && screenWidth < 600 && <Menu setMenu={setMenu} />}
+      {menu && screenWidth < 560 && <Menu setMenu={setMenu} />}
       <main>
         <Outlet />
       </main>
