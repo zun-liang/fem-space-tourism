@@ -59,6 +59,8 @@ Users should be able to:
 
 - [Window: location property](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
 - [7 Alternatives to the <div> HTML Tag](https://medium.com/@zac_heisey/7-alternatives-to-the-div-html-tag-7c888c7b5036)
+- [script: The Script Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
+  Module script defer by default.
 
 #### CSS Related
 
