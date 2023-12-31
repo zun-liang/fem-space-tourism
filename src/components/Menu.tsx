@@ -2,38 +2,38 @@ import { Dispatch, SetStateAction } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const MenuContainer = styled.nav``;
 const StyledList = styled.ul`
+  width: 70vw;
+  height: 100%;
   background-color: hsl(var(--white) / 0.05);
   backdrop-filter: blur(20px);
   position: absolute;
   right: 0;
-  width: 70vw;
-  height: 100%;
   z-index: 2;
   padding: 6rem 2rem;
   @media (min-width: 560px) {
+    width: auto;
+    height: 90px;
     position: relative;
     top: 0;
-    left: auto;
     right: -1.5rem;
-    transform: translate(0, 0);
-    width: auto;
-    height: 100px;
-    padding: 0 3rem;
+    margin-left: -1.5rem;
+    padding: 0 2rem;
     z-index: 1;
-    border-radius: 0;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 2rem;
   }
-  @media (min-width: 1024px) {
-    padding: 0 5rem;
-    height: 95px;
-    gap: 3rem;
+  @media (min-width: 720px) {
+    padding: 0 3rem;
+    gap: 2.5rem;
     right: -2.5rem;
+    margin-left: -2.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding: 0 clamp(3.5rem, 4rem, 5rem);
+    gap: 3rem;
   }
 `;
 const StyledListItem = styled.li`
@@ -49,36 +49,37 @@ const StyledListItem = styled.li`
     height: 100%;
     align-items: center;
   }
+  @media (min-width: 1024px) {
+    font-size: 0.9rem;
+  }
 `;
 const StyledLink = styled(NavLink)`
-  width: 60%;
-  height: 60%;
+  width: 100%;
   text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 3px solid transparent;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  &:hover {
-    border-bottom: 3px solid hsl(var(--white) / 0.5);
-  }
   &:link,
   &:active,
   &:hover,
   &:visited {
     color: hsl(var(--white));
   }
-  & > span {
-    font-weight: bold;
+  &:hover {
+    border-bottom: 3px solid hsl(var(--white) / 0.5);
+  }
+  & > strong {
     margin-right: 10px;
     @media (min-width: 560px) {
       display: none;
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 720px) {
       display: inline;
     }
   }
   @media (min-width: 560px) {
-    width: 100%;
     height: 100%;
   }
 `;
@@ -94,7 +95,7 @@ const Menu = ({ setMenu }: Props) => {
   const defaultStyle = {};
   const closeMenu = () => setMenu(false);
   return (
-    <MenuContainer>
+    <nav>
       <StyledList>
         <StyledListItem>
           <StyledLink
@@ -102,7 +103,7 @@ const Menu = ({ setMenu }: Props) => {
             onClick={closeMenu}
             style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
           >
-            <span>00</span>
+            <strong>00</strong>
             HOME
           </StyledLink>
         </StyledListItem>
@@ -112,7 +113,7 @@ const Menu = ({ setMenu }: Props) => {
             onClick={closeMenu}
             style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
           >
-            <span>01</span>
+            <strong>01</strong>
             DESTINATION
           </StyledLink>
         </StyledListItem>
@@ -122,7 +123,7 @@ const Menu = ({ setMenu }: Props) => {
             onClick={closeMenu}
             style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
           >
-            <span>02</span>
+            <strong>02</strong>
             CREW
           </StyledLink>
         </StyledListItem>
@@ -132,12 +133,12 @@ const Menu = ({ setMenu }: Props) => {
             onClick={closeMenu}
             style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
           >
-            <span>03</span>
+            <strong>03</strong>
             TECHNOLOGY
           </StyledLink>
         </StyledListItem>
       </StyledList>
-    </MenuContainer>
+    </nav>
   );
 };
 
