@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [here](https://your-solution-url.com)
-- Live Site URL: [here](https://your-live-site-url.com)
+- Live Site URL: [here](https://zun-liang.github.io/fem-space-tourism/)
 
 ## My process
 
@@ -42,14 +42,17 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- TypeScript
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
+- [React Router](https://reactrouter.com/en/main)
+- [Vite](https://vitejs.dev/)
 - [vite-plugin-svgr](https://www.npmjs.com/package/vite-plugin-svgr)
 
 ### What I learned
 
 - How to use Typescript in React, React Router, Styled-Components and Vite
+- How to make a sliding navigation
 
 ### Continued development
 
@@ -80,6 +83,7 @@ Users should be able to:
 - [:where()](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
 - [:is()](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)
 - [aria-selected](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
+- [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 
 #### Typescript Related
 
@@ -101,4 +105,4 @@ Users should be able to:
 ## Acknowledgments
 
 - [Build a Space Travel Website](https://scrimba.com/learn/spacetravel)
-  I learned some pretty cool css skills in Kevin Powell's course and utilized them in this solution.
+  I learned some pretty cool CSS skills in Kevin Powell's course and utilized some of them in this solution.
