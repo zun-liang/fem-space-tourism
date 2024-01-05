@@ -5,12 +5,15 @@ import styled from "styled-components";
 const StyledList = styled.ul`
   width: 70vw;
   height: 100%;
-  background-color: hsl(var(--white) / 0.05);
-  backdrop-filter: blur(20px);
+  background-color: hsl(var(--dark-color) / 0.95);
   position: absolute;
   right: 0;
   z-index: 2;
   padding: 6rem 2rem;
+  @supports (backdrop-filter: blur(20px)) {
+    background-color: hsl(var(--white) / 0.05);
+    backdrop-filter: blur(20px);
+  }
   @media (min-width: 560px) {
     width: auto;
     height: 90px;

@@ -9,7 +9,7 @@ import { Article, H2, P, Section } from "../assets/styles/SharedStyles";
 const HomePage = styled(Section)`
   height: var(--app-height);
   min-height: auto;
-  padding: 0 2rem;
+  padding: 6.5rem 2rem 0;
   background-image: url(${BGMobile});
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
@@ -72,7 +72,7 @@ const StyledP = styled(P)`
 const Circle = styled.div`
   width: 260px;
   height: 260px;
-  margin-top: 5rem;
+  margin-top: 2rem;
   background-color: hsl(var(--white));
   border-radius: 50%;
   cursor: pointer;
