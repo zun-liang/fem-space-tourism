@@ -70,6 +70,16 @@ Users should be able to:
 - [:where()](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
 - [white-space](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)
 - [Character issue with the Bellefair Google font](https://stackoverflow.com/questions/72577560/character-issue-with-the-bellefair-google-font)
+- [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [padding-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline)
+- [margin-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline)
+- [subsequent-sibling combinator ~](https://developer.mozilla.org/en-US/docs/Web/CSS/Subsequent-sibling_combinator)
+- [next-sibling combinator +](https://developer.mozilla.org/en-US/docs/Web/CSS/Next-sibling_combinator)
+- [child combinator >](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator)
+- [descendant combinator single space (" ")](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
+- [:where()](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+- [:is()](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)
+- [aria-selected](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
 
 #### Typescript Related
 
