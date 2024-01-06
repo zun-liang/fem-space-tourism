@@ -64,6 +64,7 @@ Users should be able to:
 - [7 Alternatives to the <div> HTML Tag](https://medium.com/@zac_heisey/7-alternatives-to-the-div-html-tag-7c888c7b5036)
 - [script: The Script Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
   Module script defer by default.
+- [Using data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes): HTML custom attributes, data-\*
 
 #### CSS Related
 
