@@ -1,8 +1,28 @@
 import { Dispatch, SetStateAction } from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-const StyledList = styled.ul`
+interface SlideType {
+  readonly $slide: boolean;
+}
+
+const sliding = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+const slidingBack = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+`;
+const StyledList = styled.ul<SlideType>`
   width: 70vw;
   height: 100%;
   background-color: hsl(var(--dark-color) / 0.95);
@@ -10,6 +30,14 @@ const StyledList = styled.ul`
   right: 0;
   z-index: 2;
   padding: 6rem 2rem;
+  animation: ${({ $slide }) =>
+    $slide
+      ? css`
+          ${sliding} 500ms ease-in-out
+        `
+      : css`
+          ${slidingBack} 500ms ease-out-in
+        `};
   @supports (backdrop-filter: blur(20px)) {
     background-color: hsl(var(--white) / 0.05);
     backdrop-filter: blur(20px);
@@ -83,15 +111,17 @@ const StyledLink = styled(NavLink)`
     }
   }
   @media (min-width: 560px) {
+    padding-bottom: 0px;
     height: 100%;
   }
 `;
 
 interface Props {
+  slide: boolean;
   setMenu: Dispatch<SetStateAction<boolean>>;
 }
 
-const Menu = ({ setMenu }: Props) => {
+const Menu = ({ slide, setMenu }: Props) => {
   const activeStyle = {
     borderBottom: "3px solid hsl(var(--white))",
   };
@@ -99,7 +129,7 @@ const Menu = ({ setMenu }: Props) => {
   const closeMenu = () => setMenu(false);
   return (
     <nav>
-      <StyledList>
+      <StyledList $slide={slide}>
         <StyledListItem>
           <StyledLink
             to="."

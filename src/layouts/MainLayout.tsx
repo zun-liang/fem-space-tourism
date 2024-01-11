@@ -1,7 +1,7 @@
 import Close from "../assets/shared/icon-close.svg?react";
 import Hamburger from "../assets/shared/icon-hamburger.svg?react";
 import Logo from "../assets/shared/logo.svg?react";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
@@ -54,7 +54,16 @@ interface Props {
 }
 
 const MainLayout = ({ menu, setMenu, screenWidth }: Props) => {
-  const toggleMenu = () => setMenu((prev: boolean) => !prev);
+  const [slide, setSlide] = useState(false);
+  const toggleMenu = () => {
+    if (menu) {
+      setMenu(false);
+      setSlide(false);
+    } else {
+      setMenu(true);
+      setSlide(true);
+    }
+  };
   return (
     <MainContainer>
       <Header>
@@ -62,9 +71,9 @@ const MainLayout = ({ menu, setMenu, screenWidth }: Props) => {
         {screenWidth >= 720 && <StyledHr />}
         {menu && screenWidth < 560 && <StyledClose onClick={toggleMenu} />}
         {!menu && screenWidth < 560 && <StyledHamburger onClick={toggleMenu} />}
-        {screenWidth >= 560 && <Menu setMenu={setMenu} />}
+        {screenWidth >= 560 && <Menu slide={slide} setMenu={setMenu} />}
       </Header>
-      {menu && screenWidth < 560 && <Menu setMenu={setMenu} />}
+      {menu && screenWidth < 560 && <Menu slide={slide} setMenu={setMenu} />}
       <main>
         <Outlet />
       </main>
