@@ -29,6 +29,7 @@ const StyledList = styled.ul<SlideType>`
     margin-left: -1.5rem;
     padding: 0 2rem;
     z-index: 1;
+    transform: translateX(0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,15 +97,15 @@ const StyledLink = styled(NavLink)`
 
 interface Props {
   slide: boolean;
-  setMenu: Dispatch<SetStateAction<boolean>>;
+  setSlide: Dispatch<SetStateAction<boolean>>;
 }
 
-const Menu = ({ slide, setMenu }: Props) => {
+const Menu = ({ slide, setSlide }: Props) => {
   const activeStyle = {
     borderBottom: "3px solid hsl(var(--white))",
   };
   const defaultStyle = {};
-  const closeMenu = () => setMenu(false);
+  const closeMenu = () => setSlide(false);
   return (
     <nav>
       <StyledList $slide={slide}>

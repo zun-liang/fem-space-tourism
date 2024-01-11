@@ -21,8 +21,6 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
-  const [menu, setMenu] = useState<boolean>(false);
-
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   useEffect(() => {
     const updateScreenWidth = () => setScreenWidth(window.innerWidth);
@@ -42,12 +40,7 @@ const App = () => {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route
-        path="/"
-        element={
-          <MainLayout menu={menu} setMenu={setMenu} screenWidth={screenWidth} />
-        }
-      >
+      <Route path="/" element={<MainLayout screenWidth={screenWidth} />}>
         <Route index element={<Home />} />
         <Route
           path="destination"
