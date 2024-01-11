@@ -23,11 +23,8 @@ const StyledList = styled.ul<SlideType>`
   @media (min-width: 560px) {
     width: auto;
     height: 90px;
-    position: relative;
-    top: 0;
-    right: -1.5rem;
-    margin-left: -1.5rem;
     padding: 0 2rem;
+    top: 1.5rem;
     z-index: 1;
     transform: translateX(0);
     display: flex;
@@ -38,8 +35,6 @@ const StyledList = styled.ul<SlideType>`
   @media (min-width: 720px) {
     padding: 0 3rem;
     gap: 2.5rem;
-    right: -2.5rem;
-    margin-left: -2.5rem;
   }
   @media (min-width: 1024px) {
     padding: 0 clamp(3.5rem, 4rem, 5rem);

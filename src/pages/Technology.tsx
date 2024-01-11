@@ -2,7 +2,18 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import styled from "styled-components";
 
-import { Article, Container, H2, H3, H4, InputContainer, Label, P, RadioBtn, Section } from "../assets/styles/SharedStyles";
+import {
+  Article,
+  Container,
+  H2,
+  H3,
+  H4,
+  InputContainer,
+  Label,
+  P,
+  RadioBtn,
+  Section,
+} from "../assets/styles/SharedStyles";
 import BGDesktop from "../assets/technology/background-technology-desktop.jpg";
 import BGMobile from "../assets/technology/background-technology-mobile.jpg";
 import BGTablet from "../assets/technology/background-technology-tablet.jpg";

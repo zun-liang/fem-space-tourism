@@ -16,12 +16,14 @@ const Header = styled.header`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 3;
   padding: 2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow-x: hidden;
   @media (min-width: 560px) {
+    position: relative;
+    height: calc(90px + 3rem);
     padding: 0 1.5rem;
   }
   @media (min-width: 720px) {
@@ -44,7 +46,6 @@ const StyledClose = styled(Close)`
   position: absolute;
   top: 2.8rem;
   right: 1.5rem;
-  z-index: 3;
 `;
 
 interface Props {
