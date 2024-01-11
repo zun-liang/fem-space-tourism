@@ -55,15 +55,7 @@ interface Props {
 
 const MainLayout = ({ menu, setMenu, screenWidth }: Props) => {
   const [slide, setSlide] = useState(false);
-  const toggleMenu = () => {
-    if (menu) {
-      setMenu(false);
-      setSlide(false);
-    } else {
-      setMenu(true);
-      setSlide(true);
-    }
-  };
+  const toggleMenu = () => setSlide((prev) => !prev);
   return (
     <MainContainer>
       <Header>

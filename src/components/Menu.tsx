@@ -1,27 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
 import { NavLink } from "react-router-dom";
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 
 interface SlideType {
   readonly $slide: boolean;
 }
 
-const sliding = keyframes`
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-`;
-const slidingBack = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-`;
 const StyledList = styled.ul<SlideType>`
   width: 70vw;
   height: 100%;
@@ -30,14 +14,8 @@ const StyledList = styled.ul<SlideType>`
   right: 0;
   z-index: 2;
   padding: 6rem 2rem;
-  animation: ${({ $slide }) =>
-    $slide
-      ? css`
-          ${sliding} 500ms ease-in-out
-        `
-      : css`
-          ${slidingBack} 500ms ease-out-in
-        `};
+  transform: ${({ $slide }) => ($slide ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 500ms ease-in-out;
   @supports (backdrop-filter: blur(20px)) {
     background-color: hsl(var(--white) / 0.05);
     backdrop-filter: blur(20px);
