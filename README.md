@@ -28,6 +28,25 @@ Users should be able to:
 
 ### Screenshot
 
+<table>
+  <tr>
+    <td>
+      <img src="./public/screenshots/screenshot-mobile-light.png" alt="screenshot mobile light" style="height: 300px" />
+      <img src="./public/screenshots/screenshot-mobile-dark.png" alt="screenshot mobile dark" style="height: 300px" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./public//screenshots/screenshot-desktop-light.png" alt="screenshot desktop light" style="width: 300px" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <img src="./public/screenshots/screenshot-desktop-dark.png" alt="screenshot desktop dark" style="width: 300px" />
+    </td>
+  </tr>
+</table>
+
 ### Links
 
 - Solution URL: [here](https://your-solution-url.com)
@@ -52,7 +71,7 @@ Users should be able to:
 ### What I learned
 
 - How to use Typescript in React, React Router, Styled-Components and Vite
-- How to make a sliding navigation
+- How to make a slide navigation
 
 ### Continued development
 

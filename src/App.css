@@ -20,7 +20,7 @@ html,
 body {
   width: 100%;
   height: var(--app-height);
-  font-size: 16px;
+  font-size: 14px;
   color: hsl(var(--white));
   background-color: hsl(var(--dark-color));
   font-family: var(--font-1);
@@ -36,6 +36,13 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (min-width: 321px) {
+  html,
+  body {
+    font-size: 16px;
   }
 }
 

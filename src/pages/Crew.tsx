@@ -5,7 +5,18 @@ import styled from "styled-components";
 import BGDesktop from "../assets/crew/background-crew-desktop.jpg";
 import BGMobile from "../assets/crew/background-crew-mobile.jpg";
 import BGTablet from "../assets/crew/background-crew-tablet.jpg";
-import { Article, Container, H2, H3, H4, InputContainer, Label, P, RadioBtn, Section } from "../assets/styles/SharedStyles";
+import {
+  Article,
+  Container,
+  H2,
+  H3,
+  H4,
+  InputContainer,
+  Label,
+  P,
+  RadioBtn,
+  Section,
+} from "../assets/styles/SharedStyles";
 import { LabelProps } from "../interfaces/interfaces";
 
 const CrewPage = styled(Section)`
@@ -69,15 +80,17 @@ const StyledImg = styled.img<LabelProps>`
 `;
 const ChoiceContainer = styled(InputContainer)`
   justify-content: center;
-  gap: 15px;
+  gap: 2rem;
   @media (min-width: 720px) {
     position: absolute;
     bottom: 1rem;
     left: 3rem;
     justify-content: flex-start;
     width: auto;
+    gap: 1.5rem;
   }
   @media (min-width: 1024px) {
+    gap: 1rem;
     left: 15%;
     bottom: 4rem;
   }

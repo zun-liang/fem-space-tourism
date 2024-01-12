@@ -22,6 +22,7 @@ const AppContainer = styled.div`
 
 const App = () => {
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
   useEffect(() => {
     const updateScreenWidth = () => setScreenWidth(window.innerWidth);
     window.addEventListener("resize", updateScreenWidth);
@@ -56,6 +57,7 @@ const App = () => {
       </Route>
     )
   );
+
   return (
     <AppContainer>
       <RouterProvider router={router} />

@@ -6,7 +6,7 @@ import { LabelProps } from "../../interfaces/interfaces";
 export const Section = styled.section`
   width: 100%;
   height: auto;
-  min-height: 100vh;
+  min-height: var(--app-height);
   position: absolute;
   top: 0;
   padding: 6.5rem 2rem 4rem;

@@ -7,10 +7,16 @@ import BGTablet from "../assets/home/background-home-tablet.jpg";
 import { Article, H2, P, Section } from "../assets/styles/SharedStyles";
 
 const HomePage = styled(Section)`
-  height: var(--app-height);
-  min-height: auto;
-  padding: 6.5rem 2rem 0;
+  padding: 2rem 2rem 2rem;
   background-image: url(${BGMobile});
+  gap: 1rem;
+  @media (min-height: 321px) {
+    padding: 6.5rem 2rem 0;
+    height: var(--app-height);
+    min-height: auto;
+    gap: 2rem;
+    border: 1px solid red;
+  }
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
   }
@@ -70,8 +76,8 @@ const StyledP = styled(P)`
   }
 `;
 const Circle = styled.div`
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   margin-top: 2rem;
   background-color: hsl(var(--white));
   border-radius: 50%;
@@ -90,6 +96,10 @@ const Circle = styled.div`
     font-family: var(--font-3);
     font-weight: 400;
     font-size: 2rem;
+  }
+  @media (min-width: 321px) {
+    width: 260px;
+    height: 260px;
   }
   @media (min-width: 720px) {
     margin-top: 3rem;
