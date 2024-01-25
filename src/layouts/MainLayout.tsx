@@ -10,6 +10,8 @@ import Menu from "../components/Menu";
 const MainContainer = styled.div`
   width: 100vw;
   height: var(--app-height);
+  position: relative;
+  overflow-x: hidden;
 `;
 const Header = styled.header`
   width: 100%;
