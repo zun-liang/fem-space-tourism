@@ -90,7 +90,7 @@ Users should be able to:
 #### HTML Related
 
 - [Window: location property](https://developer.mozilla.org/en-US/docs/Web/API/Window/location)
-- [7 Alternatives to the <div> HTML Tag](https://medium.com/@zac_heisey/7-alternatives-to-the-div-html-tag-7c888c7b5036)
+- [7 Alternatives to the div HTML Tag](https://medium.com/@zac_heisey/7-alternatives-to-the-div-html-tag-7c888c7b5036)
 - [script: The Script Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
   Module script defer by default.
 - [Using data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes): HTML custom attributes, data-\*
@@ -124,6 +124,7 @@ Users should be able to:
 #### Vite Related
 
 - [Static Asset Handling](https://vitejs.dev/guide/assets)
+- [Images do not present on Netlify after deploying, but they work well on the local host](https://answers.netlify.com/t/images-do-not-present-on-netlify-after-deploying-but-they-work-well-on-the-local-host/66762)
 
 ## Author
 

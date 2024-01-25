@@ -176,9 +176,8 @@ const Crew = () => {
 
   const data = useLoaderData() as Crew[];
   const crewArr = data.map((crew) => {
-    const baseUrl = window.location.href.replace("/crew", "/src");
     const relativePath = crew.images.png.replace("./", "/");
-    const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
+    const imgUrl = new URL(`${relativePath}`, import.meta.url).href;
     return (
       <CrewArticle key={crew.name}>
         <StyledImg

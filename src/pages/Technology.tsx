@@ -141,20 +141,15 @@ const Technology = ({ screenWidth }: Props) => {
     setTechChoice(event.target.value);
 
   const technologyArr = data.map((technology) => {
-    const baseUrl = window.location.href.replace("/technology", "/src");
     const relativePathPortrait = technology.images.portrait.replace("./", "/");
     const relativePathLandscape = technology.images.landscape.replace(
       "./",
       "/"
     );
-    const portraitUrl = new URL(
-      `${baseUrl}${relativePathPortrait}`,
-      import.meta.url
-    ).href;
-    const landscapeUrl = new URL(
-      `${baseUrl}${relativePathLandscape}`,
-      import.meta.url
-    ).href;
+    const portraitUrl = new URL(`${relativePathPortrait}`, import.meta.url)
+      .href;
+    const landscapeUrl = new URL(`${relativePathLandscape}`, import.meta.url)
+      .href;
     return (
       <TechnologyArticle key={technology.name}>
         <StyledImg
