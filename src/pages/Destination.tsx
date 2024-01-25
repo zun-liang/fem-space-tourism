@@ -161,7 +161,7 @@ const Destination = () => {
     // const baseUrl = window.location.href.replace("/destination", "/src");
     // const relativePath = destination.images.png.replace("./", "/");
     // const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
-    const relativePath = destination.images.png.replace("./", "../");
+    const relativePath = destination.images.png.replace("./", "/");
     const imgUrl = new URL(`${relativePath}`, import.meta.url).href;
     console.log(imgUrl);
     return (
