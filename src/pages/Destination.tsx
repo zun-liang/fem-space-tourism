@@ -158,9 +158,11 @@ const Destination = () => {
 
   const data = useLoaderData() as Destination[];
   const destinationsArr = data.map((destination: Destination) => {
-    const baseUrl = window.location.href.replace("/destination", "/src");
-    const relativePath = destination.images.png.replace("./", "/");
-    const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
+    // const baseUrl = window.location.href.replace("/destination", "/src");
+    // const relativePath = destination.images.png.replace("./", "/");
+    // const imgUrl = new URL(`${baseUrl}${relativePath}`, import.meta.url).href;
+    const imgUrl = destination.images.png.replace("./", "../");
+    console.log(imgUrl);
     return (
       <DestinationArticle key={destination.name}>
         <StyledImg src={imgUrl} alt={destination.name} />
