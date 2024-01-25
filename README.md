@@ -59,8 +59,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [here](https://your-solution-url.com)
-- Live Site URL: [here](https://zun-liang.github.io/fem-space-tourism/)
+- Solution URL: [here](https://www.frontendmentor.io/solutions/space-tourism-multipage-website-1acPAR41BO)
+- Live Site URL: [here](https://zun-liang-space-tourism.netlify.app/)
 
 ## My process
 
