@@ -66,9 +66,13 @@ const MainLayout = ({ screenWidth }: Props) => {
         {!slide && screenWidth < 560 && (
           <StyledHamburger onClick={toggleSlide} />
         )}
-        {screenWidth >= 560 && <Menu slide={slide} setSlide={setSlide} />}
+        {screenWidth >= 560 && (
+          <Menu slide={slide} setSlide={setSlide} screenWidth={screenWidth} />
+        )}
       </Header>
-      {screenWidth < 560 && <Menu slide={slide} setSlide={setSlide} />}
+      {screenWidth < 560 && (
+        <Menu slide={slide} setSlide={setSlide} screenWidth={screenWidth} />
+      )}
       <main>
         <Outlet />
       </main>

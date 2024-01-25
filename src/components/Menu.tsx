@@ -93,12 +93,16 @@ const StyledLink = styled(NavLink)`
 interface Props {
   slide: boolean;
   setSlide: Dispatch<SetStateAction<boolean>>;
+  screenWidth: number;
 }
 
-const Menu = ({ slide, setSlide }: Props) => {
-  const activeStyle = {
-    borderBottom: "3px solid hsl(var(--white))",
-  };
+const Menu = ({ slide, setSlide, screenWidth }: Props) => {
+  const activeStyle =
+    screenWidth < 560
+      ? {}
+      : {
+          borderBottom: "3px solid hsl(var(--white))",
+        };
   const defaultStyle = {};
   const closeMenu = () => setSlide(false);
   return (
