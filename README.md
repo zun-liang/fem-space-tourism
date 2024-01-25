@@ -31,18 +31,28 @@ Users should be able to:
 <table>
   <tr>
     <td>
-      <img src="./public/screenshots/screenshot-mobile-light.png" alt="screenshot mobile light" style="height: 300px" />
-      <img src="./public/screenshots/screenshot-mobile-dark.png" alt="screenshot mobile dark" style="height: 300px" />
+      <img src="./public/screenshots/screenshot-mobile-home.png" alt="screenshot mobile light" style="height: 300px" />
+      <img src="./public/screenshots/screenshot-mobile-menu.png" alt="screenshot mobile dark" style="height: 300px" />
     </td>
   </tr>
   <tr>
     <td>
-      <img src="./public//screenshots/screenshot-desktop-light.png" alt="screenshot desktop light" style="width: 300px" />
+      <img src="./public//screenshots/screenshot-tablet-home.png" alt="screenshot desktop light" style="width: 300px" />
     </td>
   </tr>
   <tr>
     <td>
-    <img src="./public/screenshots/screenshot-desktop-dark.png" alt="screenshot desktop dark" style="width: 300px" />
+      <img src="./public//screenshots/screenshot-tablet-destination.png" alt="screenshot desktop light" style="width: 300px" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./public//screenshots/screenshot-desktop-crew.png" alt="screenshot desktop light" style="width: 300px" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <img src="./public/screenshots/screenshot-desktop-technology.png" alt="screenshot desktop dark" style="width: 300px" />
     </td>
   </tr>
 </table>
@@ -125,4 +135,5 @@ Users should be able to:
 ## Acknowledgments
 
 - [Build a Space Travel Website](https://scrimba.com/learn/spacetravel)
+
   I learned some pretty cool CSS skills in Kevin Powell's course and utilized some of them in this solution.
