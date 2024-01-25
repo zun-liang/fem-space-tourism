@@ -4,22 +4,13 @@ import styled from "styled-components";
 import BGDesktop from "../assets/home/background-home-desktop.jpg";
 import BGMobile from "../assets/home/background-home-mobile.jpg";
 import BGTablet from "../assets/home/background-home-tablet.jpg";
-import { Article, H2, P } from "../assets/styles/SharedStyles";
+import { Article, H2, P, Section } from "../assets/styles/SharedStyles";
 
-const HomePage = styled.section`
-  width: 100%;
-  height: auto;
+const HomePage = styled(Section)`
+  min-height: auto;
   padding: 2rem 2rem 2rem;
-  position: absolute;
-  top: 0;
   background-image: url(${BGMobile});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
   gap: 1rem;
   @media (min-height: 321px) {
     padding: 6.5rem 2rem 0;
