@@ -10,10 +10,9 @@ const HomePage = styled(Section)`
   min-height: auto;
   padding: 2rem 2rem 2rem;
   background-image: url(${BGMobile});
-  justify-content: flex-start;
   gap: 1rem;
   @media (min-height: 321px) {
-    padding: 6.5rem 2rem 0;
+    padding: 6rem 2rem 0;
     height: var(--app-height);
     min-height: auto;
     gap: 2rem;
