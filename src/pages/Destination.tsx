@@ -23,11 +23,13 @@ const DestinationPage = styled(Section)`
     background-image: url(${BGTablet});
   }
   @media (min-width: 720px) {
-    padding: 6.5rem 4rem 4rem;
+    padding: 10rem 4rem 4rem;
     background-image: url(${BGDesktop});
+    justify-content: flex-start;
   }
   @media (min-width: 1024px) {
     padding: 0 15%;
+    justify-content: center;
   }
 `;
 const DestinationArticle = styled(Article)`

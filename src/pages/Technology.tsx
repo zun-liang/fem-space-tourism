@@ -26,12 +26,14 @@ const TechnologyPage = styled(Section)`
     background-image: url(${BGTablet});
   }
   @media (min-width: 720px) {
-    padding: 2rem 0rem 2rem 5rem;
+    padding: 10rem 0rem 2rem 4rem;
     background-image: url(${BGDesktop});
+    justify-content: flex-start;
   }
   @media (min-width: 1024px) {
     padding: 4rem 8% 2rem 12%;
     gap: 1rem;
+    justify-content: center;
   }
 `;
 const TechnologyArticle = styled(Article)`

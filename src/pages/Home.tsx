@@ -4,18 +4,28 @@ import styled from "styled-components";
 import BGDesktop from "../assets/home/background-home-desktop.jpg";
 import BGMobile from "../assets/home/background-home-mobile.jpg";
 import BGTablet from "../assets/home/background-home-tablet.jpg";
-import { Article, H2, P, Section } from "../assets/styles/SharedStyles";
+import { Article, H2, P } from "../assets/styles/SharedStyles";
 
-const HomePage = styled(Section)`
+const HomePage = styled.section`
+  width: 100%;
+  height: auto;
   padding: 2rem 2rem 2rem;
+  position: absolute;
+  top: 0;
   background-image: url(${BGMobile});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   gap: 1rem;
   @media (min-height: 321px) {
     padding: 6.5rem 2rem 0;
     height: var(--app-height);
     min-height: auto;
     gap: 2rem;
-    border: 1px solid red;
   }
   @media (min-width: 560px) {
     background-image: url(${BGTablet});
@@ -76,9 +86,8 @@ const StyledP = styled(P)`
   }
 `;
 const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  margin-top: 2rem;
+  width: 150px;
+  height: 150px;
   background-color: hsl(var(--white));
   border-radius: 50%;
   cursor: pointer;
@@ -100,6 +109,7 @@ const Circle = styled.div`
   @media (min-width: 321px) {
     width: 260px;
     height: 260px;
+    margin-top: 2rem;
   }
   @media (min-width: 720px) {
     margin-top: 3rem;

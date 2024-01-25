@@ -8,8 +8,8 @@ import styled from "styled-components";
 import Menu from "../components/Menu";
 
 const MainContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: var(--app-height);
 `;
 const Header = styled.header`
   width: 100%;

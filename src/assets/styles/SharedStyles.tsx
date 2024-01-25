@@ -10,7 +10,6 @@ export const Section = styled.section`
   position: absolute;
   top: 0;
   padding: 6.5rem 2rem 4rem;
-  gap: 2rem;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -18,6 +17,7 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 `;
 export const Article = styled.article`
   display: flex;

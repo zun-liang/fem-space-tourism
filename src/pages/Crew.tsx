@@ -28,7 +28,7 @@ const CrewPage = styled(Section)`
   }
   @media (min-width: 720px) {
     background-image: url(${BGDesktop});
-    padding: 6.5rem 2rem 1rem;
+    padding: 6.5rem 4rem 1rem;
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -65,9 +65,8 @@ const StyledImg = styled.img<LabelProps>`
     height: 435px;
   }
   @media (min-width: 720px) {
-    width: 40vw;
+    width: 60vw;
     height: auto;
-    max-width: 50vw;
     position: absolute;
     bottom: 0rem;
     right: 2rem;
@@ -84,7 +83,7 @@ const ChoiceContainer = styled(InputContainer)`
   @media (min-width: 720px) {
     position: absolute;
     bottom: 1rem;
-    left: 3rem;
+    left: 4rem;
     justify-content: flex-start;
     width: auto;
     gap: 1.5rem;
@@ -117,6 +116,8 @@ const TextContainer = styled(Container)`
   }
   @media (min-width: 720px) {
     align-items: flex-start;
+    position: relative;
+    z-index: 2;
   }
 `;
 const Role = styled(H4)`
