@@ -80,16 +80,14 @@ const ChoiceContainer = styled(InputContainer)`
 `;
 const StyledLabel = styled(Label)`
   text-transform: uppercase;
-  text-decoration: ${({ $selected }) =>
-    $selected
-      ? "3px underline hsl(var(--white))"
-      : "3px underline transparent"};
-  text-underline-offset: 10px;
+  border-bottom: ${({ $selected }) =>
+    $selected ? "3px solid hsl(var(--white))" : "3px solid transparent"};
+  padding-bottom: 5px;
   letter-spacing: 3px;
   font-family: var(--font-2);
   color: hsl(var(--light-color));
   &:hover {
-    text-decoration: 3px underline hsl(var(--white) / 0.5);
+    border-bottom: 3px solid hsl(var(--white) / 0.5);
   }
 `;
 const StyledH3 = styled(H3)`
